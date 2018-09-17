@@ -1,0 +1,30 @@
+<ng-container *ngIf="items.length > 0 else noItems">
+  <!-- <ul>
+    <li *ngFor="let item of items">
+      <span>
+          {{item.firstName}} {{item.lastName}}
+      </span>
+    </li>
+  </ul> -->
+  <ion-content>
+    <ion-list>
+      <ion-item-sliding *ngFor="let item of items">
+        <ion-item>
+          {{item.firstName}} {{item.lastName}}
+          <i class="fa fa-pencil" style="background-color:red;">X</i>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button (click)="doSomething()">Swiped Left</button>
+        </ion-item-options>
+        <!-- <ion-item-options side="right">
+            <button ion-button (click)="doSomethingElse()">Swiped Right</button>
+        </ion-item-options> -->
+        <br />
+      </ion-item-sliding>
+    </ion-list>
+  </ion-content>
+</ng-container>
+
+<ng-template #noItems>
+  <h1>no items to display</h1>
+</ng-template>
